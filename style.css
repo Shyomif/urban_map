@@ -1,0 +1,326 @@
+/* GEO TEAM — space / geospatial theme
+   Palette (kept from original): navy #1B325E, blue #7c94ca, aqua aquamarine, cream #f3f0e4, black */
+
+:root {
+  --navy: #1b325e;
+  --deep: #0b1630;
+  --blue: #7c94ca;
+  --aqua: aquamarine;
+  --cream: #f3f0e4;
+  --muted: #cbd5e1;
+  --card: rgba(27, 50, 94, 0.55);
+  --line: rgba(124, 148, 202, 0.35);
+  --radius: 18px;
+  --logo-green: #6aa84f; /* globe / TEAM text in the logo */
+  --logo-brown: #b0702f; /* mountain in the logo */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  line-height: 1.65;
+  color: var(--cream);
+  background:
+    radial-gradient(ellipse at 20% -10%, var(--navy) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 110%, #14284f 0%, transparent 50%),
+    var(--deep);
+  background-attachment: fixed;
+  position: relative;
+} 
+
+/* ---------- Starfield (sparkling stars) ---------- */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: repeat;
+}
+
+body::before {
+  background-image:
+    radial-gradient(1px 1px at 30px 40px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 120px 90px, #fff, transparent),
+    radial-gradient(1px 1px at 210px 20px, #fff, transparent),
+    radial-gradient(1px 1px at 280px 150px, #cfe3ff, transparent),
+    radial-gradient(1.5px 1.5px at 60px 190px, #fff, transparent),
+    radial-gradient(1px 1px at 330px 60px, #fff, transparent),
+    radial-gradient(1px 1px at 170px 240px, #fff, transparent);
+  background-size: 360px 280px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+body::after {
+  background-image:
+    radial-gradient(2px 2px at 90px 130px, var(--aqua), transparent),
+    radial-gradient(1.5px 1.5px at 250px 40px, #fff, transparent),
+    radial-gradient(2px 2px at 400px 210px, var(--blue), transparent),
+    radial-gradient(1px 1px at 520px 90px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 180px 300px, #fff, transparent);
+  background-size: 560px 340px;
+  animation: twinkle 2.6s ease-in-out 0.8s infinite alternate-reverse;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+header,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+header,
+/* main, */
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px clamp(16px, 5vw, 64px);
+  background: rgba(11, 22, 48, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+#logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* ---------- Logo orbit (satellite) ---------- */
+.logo-orbit {
+  position: relative;
+  perspective: 300px;
+  display: inline-flex;
+  margin: 12px;
+}
+
+.orbit {
+  position: absolute;
+  inset: -14px;
+  z-index: 2;
+  border: 1px dashed var(--logo-green);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: orbit-tilt 7s linear infinite;
+}
+
+/* orbit plane tilted 60 degrees, satellite travels along the tilted ring */
+@keyframes orbit-tilt {
+  from {
+    transform: rotate3d(1, -0.4, 0, 60deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotate3d(1, -0.4, 0, 60deg) rotateZ(360deg);
+  }
+}
+
+.satellite {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--logo-green);
+  animation: spin-slow 7s linear infinite reverse; /* keeps it upright while orbiting */
+}
+
+.satellite::before,
+.satellite::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  width: 7px;
+  height: 4px;
+  background: var(--logo-brown);
+  border-radius: 1px;
+}
+
+.satellite::before {
+  right: 100%;
+  margin-right: 1px;
+}
+.satellite::after {
+  left: 100%;
+  margin-left: 1px;
+}
+
+.team-title {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nav_menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 4px;
+}
+
+.nav-item {
+  display: block;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.nav-item:hover {
+  color: #fff;
+  background: rgba(124, 148, 202, 0.25);
+}
+
+.nav-item.active {
+  color: var(--deep);
+  background: var(--blue);
+  font-weight: 600;
+}
+
+/* ---------- Language toggle & RTL ---------- */
+.lang-toggle {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: var(--aqua);
+  background: transparent;
+  border: 1px solid var(--aqua);
+}
+
+.lang-toggle:hover {
+  background: rgba(127, 255, 212, 0.12);
+  box-shadow: none;
+}
+
+
+main{ 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-content: center;
+    align-items: center;     
+    min-height: 100vh;       
+}
+
+
+#map, #map2, #map3 , #map4 , #map5 , #map6 , #map7 , #map8  {
+    width: 900px;              
+    max-width: 800px;        
+    height: 600px;           
+    margin: 1.5rem auto;    
+    border-radius: 12px;    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #e0e0e0;
+}
+section {
+    text-align: center; 
+ }
+
+
+
+ .my-custom-marker {
+    filter: hue-rotate(160deg);  
+
+ }   
+
+ .garden_icon{
+  color: #6aa84f;
+  background-color: #fdfdfd; 
+  border-radius: 32px;
+ } 
+
+ .icon_school{
+  color: black; 
+ }
+
+
+
+ footer {
+  text-align: center;
+  padding: 40px 16px 32px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  background: rgba(11, 22, 48, 0.8);
+  border-top: 1px solid var(--line);
+}
+
+footer img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin: 20px 0 8px;
+}
+
+footer p {
+  margin: 0 auto 6px;
+}
+
+footer a {
+  color: var(--aqua);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+
+hr {
+  display: none;
+}
