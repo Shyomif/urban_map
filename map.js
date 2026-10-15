@@ -12,11 +12,9 @@ var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);  //add basemap
 
-var Stadia_StamenTerrain = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 18,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
+var Esri =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16
 }).addTo(map); 
  
 
@@ -157,7 +155,7 @@ var buildingsLayer = L.geoJSON(biuldings_2026, {
 // add layers control
 var baseMaps = {
 	'osm': osm ,   
-	"Stadia_StamenTerrain" : Stadia_StamenTerrain , 
+	"Esri" : Esri , 
 };   
 var overlayMap = {
  'أبنية مخيم اليرموك': buildingsLayer,  
@@ -324,17 +322,15 @@ map2.fitBounds(rode_exhibition.getBounds());
 
 
 
-var Stadia_StamenTerrain2 = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 18,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
+var Esri2 =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16
 }).addTo(map2);   
 
 
 var baseMaps2 = {   
     "osm" :osm2, 
-    "Stadia_StamenTerrain" : Stadia_StamenTerrain2 ,  
+    "Esri" : Esri2 ,  
 };   
 var overlayMap2= {
 'أبنية مدينة المعارض': exhibition_layer,  
@@ -409,11 +405,9 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
 }).addTo(map3);  //add basemap   
 
 
-var Stadia_StamenTerrain3 = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 18,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
+var Esri3 =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16
 }).addTo(map3);   
 
 
@@ -614,7 +608,7 @@ legend_old_dama.addTo(map3);
 
 var baseMaps3 = {
 	'osm': osm3 ,   
-	"Stadia_StamenTerrain" : Stadia_StamenTerrain3 , 
+	"Esri" : Esri3 , 
 };   
 var overlayMap3= {
 'المعالم الأثرية لدمشق القديمة':markersCluster , 
@@ -666,11 +660,9 @@ var osm4 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map4);  //add basemap   
 
-var Stadia_StamenTerrain4 = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 18,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
+var Esri4 =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16
 }).addTo(map4);
 
 
@@ -701,7 +693,7 @@ map4.fitBounds(markersCluster_shcool.getBounds());
 
 var baseMaps4 = {   
 	"osm" : osm4 , 
-    "Stadia StamenTerrain":Stadia_StamenTerrain4 , 
+    "Esri":Esri4 , 
 };   
 var overlayMap4= {
 'المدارس':markersCluster_shcool,    
@@ -763,11 +755,9 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
 }).addTo(map5);  //add basemap   
 
 
-var Stadia_StamenTerrain5 = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 18,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
+var Esri5 =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16
 }).addTo(map5);  
 
 var damastyle = {
@@ -823,7 +813,7 @@ lulc.setMosaicRule({
 
 var baseMaps5 = {   
 	"osm" : osm5 , 
-    "Stadia StamenTerrain":Stadia_StamenTerrain5 ,   
+    "Esri":Esri5 ,   
 };    
 
 var overlayMap5= {
@@ -897,11 +887,9 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
 }).addTo(map6);  //add basemap   
 
 
-var Stadia_StamenTerrain6 = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 18,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
+var Esri6 =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16
 }).addTo(map6);
 
 
@@ -947,7 +935,7 @@ map6.fitBounds(markersCluster_grden.getBounds());
 
 var baseMaps6 = {   
 	"osm" : osm6 , 
-    "Stadia StamenTerrain":Stadia_StamenTerrain6, 
+    "Esri":Esri6, 
 };   
 var overlayMap6= {
 'الحدائق':markersCluster_grden,    
@@ -1012,11 +1000,9 @@ var osm7 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map7);  //add basemap   
 
-var Stadia_StamenTerrain7 = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
-	minZoom: 0,
-	maxZoom: 18,
-	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	ext: 'png'
+var Esri7 =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16
 }).addTo(map7); 
 
 // location button
@@ -1045,7 +1031,14 @@ const map8 = L.map('map8' , {
 
 var osm8 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map8);  //add basemap  
+}).addTo(map8);  //add basemap   
+
+
+var Esri8 =  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+	maxZoom: 16
+}).addTo(map8); 
+
 // location button
 L.control.locate({
     position: 'topleft', 
@@ -1116,7 +1109,7 @@ var street1_layer =L.geoJSON(street1, {
  
 var baseMaps8 = {   
 	"osm" : osm8 , 
-    "Stadia StamenTerrain8":Stadia_StamenTerrain6, 
+    "Esri":Esri8, 
 };   
 var overlayMap8= {
 'طريق':street1_layer, 
